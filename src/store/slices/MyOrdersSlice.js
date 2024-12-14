@@ -1,6 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+
+const initialState = {
+    orederData: [],
+    status: 'idle',
+    error: null
+}
 export const fetchMyOrder = createAsyncThunk('endpoint', async (url, thunkAPI) => {
     try {
         const res = await axios.get(url)
@@ -12,12 +18,23 @@ export const fetchMyOrder = createAsyncThunk('endpoint', async (url, thunkAPI) =
 
 export const MyOrderSlice = createSlice({
     name: 'myorders',
-    initialState: [],
+    initialState,
     reducers: {
         getMyOrders: (state, action) => {
-            state.push(action.payload)
+            state.orederData = action.payload;
         }
     },
+    extraReducers: {
+        [getPosts.pending]: (state, action) => {
+            // When data is being fetched
+            state.status = 'loading'
+        },
+        [getPosts.fulfilled]: (state, action) => {
+            // When data is being fetched
+            state.orederData = action.payload;
+            state.status = 'idle'
+        },
+    }
 });
 
 export const { getMyOrders } = MyOrderSlice.actions;
