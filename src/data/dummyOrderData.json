@@ -5,7 +5,8 @@
         "stockSymbol": "MMM",
         "stockName": "3M",
         "price": 30,
-        "date": "14 Dec 2024 11:55:02"
+        "date": "14 Dec 2024 11:55:02",
+        "status": "FullFilled"
     },
     {
         "orderQuantity": 1050,
@@ -13,7 +14,8 @@
         "stockSymbol": "AMZ",
         "stockName": "AMZON",
         "price": 50,
-        "date": "14 Dec 2024 11:55:02"
+        "date": "14 Dec 2024 11:55:02",
+        "status": "FullFilled"
     },
     {
         "orderQuantity": 1090,
@@ -21,7 +23,8 @@
         "stockSymbol": "APL",
         "stockName": "APLE",
         "price": 80,
-        "date": "14 Dec 2024 11:55:02"
+        "date": "14 Dec 2024 11:55:02",
+        "status": "FullFilled"
     },
     {
         "orderQuantity": 1200,
@@ -29,7 +32,8 @@
         "stockSymbol": "GOL",
         "stockName": "GOGLE",
         "price": 30,
-        "date": "14 Dec 2024 11:55:02"
+        "date": "14 Dec 2024 11:55:02",
+        "status": "Pending"
     },
     {
         "orderQuantity": 899,
@@ -37,6 +41,7 @@
         "stockSymbol": "NET",
         "stockName": "NETFLIXX",
         "price": 50,
-        "date": "14 Dec 2024 11:55:02"
+        "date": "14 Dec 2024 11:55:02",
+        "status": "Rejected"
     }
 ]

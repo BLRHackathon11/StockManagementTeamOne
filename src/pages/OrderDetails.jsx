@@ -5,8 +5,8 @@ import CommonTable from '../components/CommonTable';
 
 const OrderDetails = () => {
 
-    const keys = ['orderId', 'stockName', 'orderQuantity', 'stockSymbol', 'price', 'date'];
-    const headers = ['OrderId', 'Name', 'Quantity', 'Symbol', 'Price', 'Ordered At']
+    const keys = ['orderId', 'stockName', 'orderQuantity', 'stockSymbol', 'price', 'date', 'status'];
+    const headers = ['OrderId', 'Name', 'Quantity', 'Symbol', 'Price', 'Ordered At', 'Status']
 
     return <Card sx={{ flex: 1, width: '100%', height: '100%' }}>
         <CommonTable data={orderData} dataKeys={keys} dataHeaders={headers} />
