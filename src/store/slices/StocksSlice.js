@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { _get } from "../../services/axioshelper";
 
-
 const initialState = {
     stocksData: [],
     status: 'idle',
@@ -10,7 +9,6 @@ const initialState = {
 export const fetchStocks = createAsyncThunk('stocksAPI', async (thunkAPI) => {
     try {
         const res = await _get('stock/fetchAll');
-        console.log("res", res.data)
         return res.data
     } catch (err) {
         return thunkAPI.rejectWithValue({ error: err.message })
@@ -29,10 +27,8 @@ export const StocksSlice = createSlice({
         builder.addCase(fetchStocks.pending, state => {
             state.status = 'loading'
         }).addCase(fetchStocks.fulfilled, (state, action) => {
-
             state.stocksData = action.payload;
             state.status = 'idle'
-            console.log("state", state.stocksData)
         })
     }
 });
