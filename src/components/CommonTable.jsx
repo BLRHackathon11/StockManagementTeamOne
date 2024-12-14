@@ -5,7 +5,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Typography } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 
 const CommonTable = ({ data, dataKeys, dataHeaders }) => {
     if (!data && data.length <= 0) {
@@ -28,8 +28,9 @@ const CommonTable = ({ data, dataKeys, dataHeaders }) => {
                         key={row.stockId}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                     >
-                        {dataKeys.map((key) => (
-                            <TableCell>{row[key]}</TableCell>
+                        {dataKeys.map((key, index) => (
+                            <TableCell> {(dataHeaders[index] == 'Action') ?
+                                <Button variant='contained'>{key}</Button> : row[key]}</TableCell>
                         ))}
                     </TableRow>
                 ))}

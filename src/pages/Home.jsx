@@ -22,8 +22,8 @@ const Home = () => {
         dispatch(fetchStocks())
     }, [])
 
-    const keys = ['stockId', 'stockName', 'stockQuantity', 'stockSymbol', 'price'];
-    const headers = ['Id', 'Name', 'Quantity', 'Symbol', 'Price']
+    const keys = ['stockId', 'stockName', 'stockQuantity', 'stockSymbol', 'price', 'Buy'];
+    const headers = ['Id', 'Name', 'Quantity', 'Symbol', 'Price', 'Action']
 
     return <Card sx={{ flexGrow: 1, alignContent: 'center' }}>
         <Typography variant="h6" color="inherit" component="div" sx={{ marginLeft: 1, marginTop: 2 }}>
