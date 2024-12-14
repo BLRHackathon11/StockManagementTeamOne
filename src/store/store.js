@@ -1,9 +1,10 @@
 
 import { configureStore } from "@reduxjs/toolkit";
-import myOrderReducer from './slices/MyOrdersSlice'
+import myOrderReducer from './slices/MyOrdersSlice';
+import stockReducer from './slices/StocksSlice';
 
 const store = configureStore({
-    reducer: { myOrderReducer },
+    reducer: { myorders: myOrderReducer, stocks: stockReducer },
 }
 );
 

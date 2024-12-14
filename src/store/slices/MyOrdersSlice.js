@@ -1,15 +1,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { _get } from "../../services/axioshelper";
 
 
 const initialState = {
-    orederData: [],
+    orderData: [],
     status: 'idle',
     error: null
 }
-export const fetchMyOrder = createAsyncThunk('endpoint', async (url, thunkAPI) => {
+export const fetchMyOrder = createAsyncThunk('myorderAPI', async (endpoint, thunkAPI) => {
     try {
-        const res = await axios.get(url)
+        const res = await _get(endpoint)
         return res.data
     } catch (err) {
         return thunkAPI.rejectWithValue({ error: err.message })
@@ -21,19 +22,16 @@ export const MyOrderSlice = createSlice({
     initialState,
     reducers: {
         getMyOrders: (state, action) => {
-            state.orederData = action.payload;
+            state.orderData = action.payload;
         }
     },
-    extraReducers: {
-        [getPosts.pending]: (state, action) => {
-            // When data is being fetched
+    extraReducers: (builder) => {
+        builder.addCase(fetchMyOrder.pending, state => {
             state.status = 'loading'
-        },
-        [getPosts.fulfilled]: (state, action) => {
-            // When data is being fetched
-            state.orederData = action.payload;
+        }).addCase(fetchMyOrder.fulfilled, (state, action) => {
+            state.orderData = action.payload;
             state.status = 'idle'
-        },
+        })
     }
 });
 
@@ -41,6 +39,4 @@ export const { getMyOrders } = MyOrderSlice.actions;
 
 export default MyOrderSlice.reducer;
 
-// export const selectCart = state => state.cart;
-
-// export const selectCartTotal = state => state.cart.reduce((total, item))
+export const myOrderData = state => state.orderData;
